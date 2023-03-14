@@ -1,12 +1,10 @@
-from PyQt6 import uic
-from PyQt6.QtWidgets import QApplication
+from Recording import *
+import sys
 
 if __name__ == '__main__':
-    Form, Window = uic.loadUiType("Recording.ui")
-
-    app = QApplication([])
-    window = Window()
-    form = Form()
-    form.setupUi(window)
-    window.show()
-    app.exec()
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())
