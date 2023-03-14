@@ -1,10 +1,18 @@
-from Recording import *
-import sys
+from PyQt6 import uic
+from PyQt6.QtWidgets import QApplication
+
+
+def start_record():
+    print(1)
+
 
 if __name__ == '__main__':
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec())
+    Form, Window = uic.loadUiType("Recording.ui")
+
+    app = QApplication([])
+    window = Window()
+    form = Form()
+    form.setupUi(window)
+    window.show()
+    form.pushButton.clicked.connect(start_record)
+    app.exec()
